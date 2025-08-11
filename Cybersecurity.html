@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Starts With You | Cybersecurity Awareness</title>
+<style>
+    :root {
+        --primary: #00ffe7; /* Neon blue */
+        --secondary: #222831; /* Charcoal black */
+        --danger: #ff206e; /* Electric red */
+        --accent: #8cb9ff;  /* Soft tech blue */
+        --bg: #15191e;      /* Deep gray */
+        --light: #f5f5f5;
+        --accent-glow: #00ffe7;
+        --text-shadow: 0 2px 12px rgba(10,10,10,0.7);
+        --btn-solid: #222831; /* Button solid dark color */
+        --btn-hover: #15191e; /* Button hover color */
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.7;
+        color: #fafafa;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, var(--bg), var(--secondary));
+    }
+
+    header {
+        background: linear-gradient(90deg, var(--secondary), var(--primary));
+        color: var(--accent);
+        padding: 2rem 0;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        border-bottom: 2px solid var(--accent);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2.8rem;
+        text-shadow: var(--text-shadow);
+        color: var(--accent-glow);
+    }
+
+    header p {
+        font-size: 1.2rem;
+        color: #e0e0e0;
+        opacity: 0.9;
+        text-shadow: var(--text-shadow);
+    }
+
+    .container {
+        width: 85%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+
+    section {
+        margin-bottom: 3rem;
+    }
+
+    h2 {
+        color: var(--primary);
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-shadow: var(--text-shadow);
+    }
+
+    .warning-box, .danger-box, .tip-box {
+        padding: 1rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .warning-box {
+        background: rgba(0, 255, 231, 0.1);
+        border-left: 5px solid var(--primary);
+        color: var(--primary);
+        text-shadow: var(--text-shadow);
+    }
+
+    .danger-box {
+        background: rgba(255, 32, 110, 0.13);
+        border-left: 5px solid var(--danger);
+        color: var(--danger);
+        text-shadow: var(--text-shadow);
+    }
+
+    .tip-box {
+        background: rgba(140, 185, 255, 0.13);
+        border-left: 5px solid var(--accent);
+        color: var(--accent);
+        text-shadow: var(--text-shadow);
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .stat-card {
+        background: rgba(0,255,231,0.05);
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: 2px solid var(--primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 8px 24px rgba(0,255,231,0.1);
+        border-color: var(--accent);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--accent);
+        margin: 0.5rem 0;
+        text-shadow: var(--text-shadow);
+    }
+
+    .btn {
+        display: inline-block;
+        background: var(--btn-solid);
+        color: #fafafa;
+        font-weight: bold;
+        padding: 0.7rem 1.5rem;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 0.5rem 0;
+        transition: all 0.3s;
+        box-shadow: 0 0 10px var(--primary);
+        border: none;
+        letter-spacing: 1px;
+        text-shadow: var(--text-shadow);
+    }
+
+    .btn:hover {
+        background: var(--btn-hover);
+        color: var(--danger);
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 0 15px var(--primary);
+    }
+
+    footer {
+        background: var(--secondary);
+        color: var(--primary);
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+        border-top: 2px solid var(--primary);
+        font-size: 1rem;
+        letter-spacing: 1px;
+        text-shadow: var(--text-shadow);
+    }
+
+    .checklist {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .checklist li {
+        padding: 0.5rem 0 0.5rem 2rem;
+        position: relative;
+        color: var(--accent);
+        text-shadow: var(--text-shadow);
+    }
+
+    .checklist li:before {
+        content: "✓";
+        color: var(--primary);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        text-shadow: var(--text-shadow);
+    }
+
+    .phishing-example {
+        background: rgba(34, 40, 49, 0.8);
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 1.5rem 0;
+        border: 2px solid var(--danger);
+        color: #fafafa;
+        font-family: 'Roboto Mono', monospace;
+        box-shadow: 0 4px 24px rgba(255,32,110,0.08);
+        text-shadow: var(--text-shadow);
+    }
+
+    .phishing-header {
+        background: rgba(0,255,231,0.12);
+        padding: 0.5rem 1rem;
+        margin: -1.5rem -1.5rem 1rem -1.5rem;
+        border-radius: 10px 10px 0 0;
+        font-family: monospace;
+        color: var(--danger);
+        font-weight: bold;
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--danger);
+        text-shadow: var(--text-shadow);
+    }
+
+    @media (max-width: 768px) {
+        .container { width: 95%; }
+        h1 { font-size: 2rem; }
+    }
+</style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Cybersecurity Starts With You</h1>
+        <p>Your guide to staying safe in the digital world</p>
+		<p><span id="today-date"></span></p>
+    </div>
+</header>
+    
+    <main class="container">
+        <section id="intro">
+            <h2>Why Cybersecurity Matters</h2>
+            <p>In today's digital age, a single click can compromise your personal information, financial data, and even your identity. Cybercriminals are constantly developing new tactics to trick users into revealing sensitive information or downloading malicious software.</p>
+            
+            <div class="warning-box">
+                <strong>Did you know?</strong> 92% of cyber attacks in 2025 start with a phishing email—attackers try to trick you into clicking a malicious link or attachment.
+            </div>
+        </section>
+        
+        <section id="stats">
+            <h2>Cybersecurity by the Numbers (2025)</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Phishing Attacks</h3>
+                    <div class="stat-number">4.1 billion</div>
+                    <p>Fake emails sent daily worldwide in 2025</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Average Cost</h3>
+                    <div class="stat-number">$5.2M</div>
+                    <p>Average cost of a data breach in 2025</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Time to Detect</h3>
+                    <div class="stat-number">190 days</div>
+                    <p>Average time to identify a breach (2025)</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Human Error</h3>
+                    <div class="stat-number">77%</div>
+                    <p>Breaches involving human error</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="dangers">
+            <h2>What Can Happen If You Click Without Thinking?</h2>
+            <div class="danger-box">
+                <strong>Warning:</strong> These are real risks that can have serious consequences for you and your organization.
+            </div>
+            
+            <ul class="checklist">
+                <li><strong>Malware infection:</strong> Your device can be infected with viruses, ransomware, or spyware</li>
+                <li><strong>Data theft:</strong> Sensitive personal or financial information can be stolen</li>
+                <li><strong>Identity theft:</strong> Criminals can impersonate you to open accounts or commit fraud</li>
+                <li><strong>Financial loss:</strong> Direct theft from bank accounts or fraudulent charges</li>
+                <li><strong>Compromised accounts:</strong> Hackers can take over your email or social media</li>
+                <li><strong>Network infiltration:</strong> At work, this can lead to company-wide breaches</li>
+            </ul>
+        </section>
+        
+        <section id="phishing">
+            <h2>Spotting Phishing Attempts</h2>
+            <p>Phishing is when criminals try to trick you into revealing sensitive information. Here's what to look for:</p>
+            
+            <div class="phishing-example">
+                <div class="phishing-header">From: "Microsoft Security" &lt;no-reply@micros0ft-secure.com&gt;</div>
+                <h3 style="margin-top: 0; color: var(--danger);">Security Alert: Unusual Sign-in Activity Detected</h3>
+                <p>Dear User,</p>
+                <p>We detected suspicious sign-in attempts on your Microsoft account from an unrecognized device.</p>
+                <p>
+                    <strong>Device:</strong> Windows PC<br>
+                    <strong>Location:</strong> Berlin, Germany<br>
+                    <strong>Time:</strong> 2025-08-11 06:10 UTC
+                </p>
+                <p>To secure your account, please confirm your identity and reset your password immediately by clicking the link below:</p>
+                <p>
+                    <a href="#fake-link" style="color: var(--primary); text-decoration: underline;">https://micros0ft-secure.com/reset</a>
+                </p>
+                <p>If you do not verify your identity within 24 hours, your account access may be restricted.</p>
+                <p>Thank you,<br>Microsoft Security Team</p>
+            </div>
+            
+            <div class="tip-box">
+                <strong>Red flags in this example:</strong> The sender's email uses a zero in "micros0ft," the link leads to a suspicious domain, urgent language about account restriction, and the generic greeting instead of your name. Legitimate security alerts will always use official domains and personalized info.
+            </div>
+        </section>
+        
+        <section id="protection">
+            <h2>How to Protect Yourself</h2>
+            <ul class="checklist">
+                <li><strong>Verify links before clicking:</strong> Hover over links to see the actual URL</li>
+                <li><strong>Check sender addresses:</strong> Look for misspellings or unusual domains</li>
+                <li><strong>Be skeptical of urgency:</strong> Legitimate companies rarely demand immediate action</li>
+                <li><strong>Don't download unexpected attachments:</strong> Even from known contacts</li>
+                <li><strong>Use multi-factor authentication:</strong> Adds an extra layer of security</li>
+                <li><strong>Keep software updated:</strong> Updates often include security patches</li>
+                <li><strong>Use strong, unique passwords:</strong> Consider a password manager</li>
+                <li><strong>Trust your instincts:</strong> If something feels off, it probably is</li>
+            </ul>
+            
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> When in doubt, contact the company directly using official contact information from their website (not from the suspicious message) to verify the communication.
+            </div>
+        </section>
+        
+        <section id="resources">
+            <h2>Additional Resources</h2>
+            <p>Learn more about staying safe online:</p>
+            <a href="https://www.cisa.gov/stopthinkconnect" class="btn" target="_blank">CISA: Stop.Think.Connect</a>
+            <a href="https://www.consumer.ftc.gov/features/identity-theft" class="btn" target="_blank">FTC Identity Theft Resources</a>
+            <a href="https://www.phishtank.com" class="btn" target="_blank">PhishTank (Report Phishing)</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Naledzi Creative Tech, South Africa</p>
+            <p>Remember: Think before you click!</p>
+            <p><small>This website is for educational purposes only. </small></p>
+        </div>
+    </footer>
+    <script>
+      // Display today's date in the footer
+      const today = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('today-date').textContent = "Today's date: " + today.toLocaleDateString(undefined, options);
+    </script>
+</body>
+</html>
